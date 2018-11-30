@@ -8,6 +8,18 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="backTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <!--<item name="homeAsUpIndicator">@android:dricmenu</item>-->
+
+    </style>
+    <style name="AppBaseTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
     <style name="NoBarTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
 
 </resources>

@@ -4,10 +4,9 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.content.ContextCompat.startActivity
-import android.support.v7.app.AppCompatActivity
 import com.fet.svmp.R
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
 
     companion object {
@@ -21,5 +20,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        setToolBar(this, R.string.title_activity_main)
     }
+
 }

@@ -2,6 +2,8 @@
     <string name="app_name">SVMP</string>
     <string name="title_activity_login">會員登入</string>
 
+    <string name="title_activity_main">主畫面</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
