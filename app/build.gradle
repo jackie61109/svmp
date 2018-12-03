@@ -6,6 +6,12 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+    google()
+}
 
 def final BUILD_NUMBER = System.getenv("BUILD_NUMBER")
 
@@ -89,14 +95,17 @@ android {
             outputFileName = new File(newApkName)
         }
     }
-
     productFlavors {
         sit {
+            manifestPlaceholders = [appName: "SVMP SIT", fabricApiKey: "7e5c897e30de146e81e3ebfbdb03b830c89b5d39"]
+
             dimension "default"
             buildConfigField "String", "WALLET_ENVIRONMENT", '"SIT"'
         }
 
         prod {
+            manifestPlaceholders = [appName: "SVMP Production", fabricApiKey: "7e5c897e30de146e81e3ebfbdb03b830c89b5d39"]
+
             dimension "default"
             buildConfigField "String", "WALLET_ENVIRONMENT", '"PROD"'
         }
@@ -113,6 +122,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    implementation('com.crashlytics.sdk.android:crashlytics:2.9.6@aar') {
+        transitive = true
+    }
     ///////// Architecture components /////////
 
     implementation "android.arch.lifecycle:extensions:1.1.1"
