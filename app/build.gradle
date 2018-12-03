@@ -11,13 +11,13 @@ def final BUILD_NUMBER = System.getenv("BUILD_NUMBER")
 
 static def gitCommitHash() {
     def cmd = 'git rev-parse --short HEAD'
-    cmd.execute().text.trim();
+    cmd.execute().text.trim()
 }
 
 static def getDateTime() {
-    SimpleDateFormat df = new SimpleDateFormat("YYYYMMddHHmm");
+    SimpleDateFormat df = new SimpleDateFormat("YYYYMMddHHmm")
 
-    return df.format(new Date());
+    return df.format(new Date())
 }
 
 android {
