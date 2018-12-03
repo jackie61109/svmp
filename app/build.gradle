@@ -1,8 +1,24 @@
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+
+
+def final BUILD_NUMBER = System.getenv("BUILD_NUMBER")
+
+static def gitCommitHash() {
+    def cmd = 'git rev-parse --short HEAD'
+    cmd.execute().text.trim();
+}
+
+static def getDateTime() {
+    SimpleDateFormat df = new SimpleDateFormat("YYYYMMddHHmm");
+
+    return df.format(new Date());
+}
 
 android {
     compileSdkVersion 28
@@ -11,13 +27,78 @@ android {
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        flavorDimensions "default"
+        buildConfigField "String", "BUILD_NUMBER", "\"$BUILD_NUMBER\""
     }
+
+    signingConfigs {
+        keyConfig {
+            storeFile file("FetSVMP.jks")
+            storePassword "svmp12345"
+            keyAlias "FetSVMP"
+            keyPassword "svmp12345"
+        }
+        unsignedKeyConfig {
+            storePassword ""
+            keyAlias ""
+            keyPassword ""
+        }
+    }
+
     buildTypes {
+        debug {
+            buildConfigField "boolean", "IS_DEBUG", "true"
+            matchingFallbacks = ['debug']
+            aaptOptions.cruncherEnabled = false
+            ext.alwaysUpdateBuildId = false
+
+            signingConfig signingConfigs.keyConfig
+        }
+
         release {
-            minifyEnabled false
+            buildConfigField "boolean", "IS_DEBUG", "false"
+            matchingFallbacks = ['release']
+            signingConfig signingConfigs.keyConfig
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            def final PROJECT_NAME = "ToSVMP"
+            def final SEPARATOR = "-"
+            def final EXTENSION = ".apk"
+            def flavor = variant.productFlavors[0].name
+            def buildType = variant.buildType.name
+            def commit = gitCommitHash()
+            def versionName = variant.versionName
+            def buildTime = getDateTime()
+
+            def newApkName = PROJECT_NAME +
+                        SEPARATOR + flavor +
+                        SEPARATOR + buildType +
+                        SEPARATOR + buildTime +
+                        SEPARATOR + commit +
+                        SEPARATOR + versionName + EXTENSION
+
+            outputFileName = new File(newApkName)
+        }
+    }
+
+    productFlavors {
+        sit {
+            dimension "default"
+            buildConfigField "String", "WALLET_ENVIRONMENT", '"SIT"'
+        }
+
+        prod {
+            dimension "default"
+            buildConfigField "String", "WALLET_ENVIRONMENT", '"PROD"'
         }
     }
 }
