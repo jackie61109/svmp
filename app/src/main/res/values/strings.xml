@@ -4,6 +4,14 @@
 
     <string name="title_activity_main">主畫面</string>
 
+    <!-- permissions -->
+    <string name="request_permission">跪求權限</string>
+    <string name="insufficient_permissions_title">APP權限不足</string>
+    <string name="insufficient_permissions_notify">無足夠權限執行friDay錢包，系統將自動離開。</string>
+    <string name="insufficient_permissions_camera">無權限開啟相機功能!!</string>
+    <string name="txt_permissions_brightness">使用friDay錢包條碼交易前，請設定自動調整螢幕亮度權限</string>
+    <string name="insufficient_permissions_message">無足夠權限執行friDay錢包，請先至應用程式開啟權限。</string>
+
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>

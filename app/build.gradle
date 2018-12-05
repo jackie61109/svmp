@@ -122,11 +122,17 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    //Fabric CrashLytics
     implementation('com.crashlytics.sdk.android:crashlytics:2.9.6@aar') {
         transitive = true
     }
-
+    //Logger third party
     implementation 'com.orhanobut:logger:2.1.1'
+    //permission
+    implementation 'pub.devrel:easypermissions:0.4.0'
+    //FireBase
+    implementation 'com.google.firebase:firebase-core:16.0.5'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
     ///////// Architecture components /////////
 
     implementation "android.arch.lifecycle:extensions:1.1.1"
@@ -154,3 +160,5 @@ dependencies {
 
     ///////// Architecture components /////////
 }
+
+apply plugin: 'com.google.gms.google-services'
