@@ -23,7 +23,6 @@ class SplashActivity : AppCompatActivity() {
 
         val m_permissionCallBackInterface = object : PermissionHelpActivity.PermissionCallBackInterface {
             override fun onGranted(activity: Activity) {
-                Logger.d("Granted")
                 FirebaseInstanceId.getInstance().instanceId
                         .addOnCompleteListener(OnCompleteListener<InstanceIdResult> { task ->
                             if (!task.isSuccessful) {
@@ -35,7 +34,7 @@ class SplashActivity : AppCompatActivity() {
                             val token = task.result?.token
 
                             // Log and toast
-                            Logger.d(token)
+                            Logger.d("instanceId = $token")
                         })
 
                 Handler().postDelayed(

@@ -18,6 +18,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!-- [START fcm_disable_auto_init] -->
+        <!--<meta-data-->
+            <!--android:name="firebase_messaging_auto_init_enabled"-->
+            <!--android:value="false" />-->
+        <!--<meta-data-->
+            <!--android:name="firebase_analytics_collection_enabled"-->
+            <!--android:value="false" />-->
+        <!-- [END fcm_disable_auto_init] -->
+
         <service android:name="com.fet.svmp.service.CloudMessagHandleService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

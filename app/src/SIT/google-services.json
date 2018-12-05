@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "183105148889",
+    "firebase_url": "https://svmp-develop.firebaseio.com",
+    "project_id": "svmp-develop",
+    "storage_bucket": "svmp-develop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183105148889:android:2761b2f999a686a0",
+        "android_client_info": {
+          "package_name": "com.fet.svmp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "183105148889-vvn984bbp4g3mbdhtl16o71cthfpfj80.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoUR4HkSSbI_6oPAyAZ6pL9j7IiWVvVw8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
