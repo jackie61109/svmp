@@ -2,6 +2,7 @@ package com.fet.svmp
 
 import android.app.Application
 import com.crashlytics.android.Crashlytics
+import com.crashlytics.android.core.CrashlyticsCore
 import com.fet.svmp.customize.Configs
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.FormatStrategy
@@ -14,12 +15,20 @@ import io.fabric.sdk.android.Fabric
  */
 class SvmpApplication : Application() {
 
-    val LOG_TAG = "SVMP"
+    private val LOG_TAG = "SVMP"
 
     override fun onCreate() {
         super.onCreate()
-        Fabric.with(this, Crashlytics())
+
+        initFabric()
         logInitial()
+    }
+
+    private fun initFabric() {
+        val crashLyticsKit = Crashlytics.Builder()
+                .core(CrashlyticsCore.Builder().disabled(BuildConfig.IS_DEBUG).build())
+                .build()
+        Fabric.with(this, crashLyticsKit)
     }
 
     private fun logInitial() {
