@@ -40,6 +40,10 @@ android {
         buildConfigField "String", "BUILD_NUMBER", "\"$BUILD_NUMBER\""
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     signingConfigs {
         keyConfig {
             storeFile file("FetSVMP.jks")

@@ -3,6 +3,8 @@
     <string name="title_activity_login">會員登入</string>
 
     <string name="title_activity_main">主畫面</string>
+    <string name="title_activity_transaction_list">交易紀錄</string>
+    <string name="title_activity_setting">設定</string>
 
     <!-- permissions -->
     <string name="request_permission">跪求權限</string>

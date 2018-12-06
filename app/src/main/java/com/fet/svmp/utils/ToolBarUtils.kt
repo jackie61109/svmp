@@ -9,7 +9,7 @@ import com.fet.svmp.R
 object ToolBarUtils {
 
     fun setDefaultStyle(activity: AppCompatActivity, titleRes: Int) {
-        val toolbar = activity.findViewById<Toolbar>(R.id.ToolBar)
+        val toolbar = activity.findViewById<Toolbar>(R.id.toolbar)
         val title = toolbar.findViewById<TextView>(R.id.toolbar_title)
         toolbar.setNavigationIcon(R.mipmap.ic_launcher)
 

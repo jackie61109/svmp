@@ -20,11 +20,11 @@
 
         <!-- [START fcm_disable_auto_init] -->
         <!--<meta-data-->
-            <!--android:name="firebase_messaging_auto_init_enabled"-->
-            <!--android:value="false" />-->
+        <!--android:name="firebase_messaging_auto_init_enabled"-->
+        <!--android:value="false" />-->
         <!--<meta-data-->
-            <!--android:name="firebase_analytics_collection_enabled"-->
-            <!--android:value="false" />-->
+        <!--android:name="firebase_analytics_collection_enabled"-->
+        <!--android:value="false" />-->
         <!-- [END fcm_disable_auto_init] -->
 
         <service android:name="com.fet.svmp.service.CloudMessagHandleService">
@@ -47,14 +47,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MainActivity"
-            android:theme="@style/NoBarTheme"/>
+        <activity
+            android:name=".view.MainActivity"
+            android:theme="@style/NoBarTheme" />
         <activity
             android:name=".view.LoginActivity"
             android:label="@string/title_activity_login" />
-        <activity android:name=".view.SettingActivity" />
+        <activity
+            android:name=".view.SettingActivity"
+            android:theme="@style/NoBarTheme" />
         <activity android:name=".view.MessageActivity" />
-        <activity android:name=".view.TransactionListDetailActivity" />
+        <activity
+            android:name=".view.TransactionListDetailActivity"
+            android:theme="@style/NoBarTheme" />
+        <activity
+            android:name=".view.TransactionListActivity"
+            android:theme="@style/NoBarTheme" />
         <activity
             android:name="com.fet.svmp.view.PermissionHelpActivity"
             android:theme="@style/TranslucentAppTheme" />
