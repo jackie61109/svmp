@@ -13,13 +13,13 @@ import com.fet.svmp.model.database.entities.AccountInfo
 interface AccountInfoDao {
 
     @Query("SELECT * FROM Account")
-    fun getAll(): List<AccountInfo>
+    fun getAll(): List<AccountInfo>?
 
     @Query("SELECT * FROM Account WHERE Account.uid LIKE :uid ")
     fun findById(uid: Int): AccountInfo
 
     @Insert
-    fun insertAll(users: AccountInfo)
+    fun insert(users: AccountInfo)
 
     @Query("DELETE FROM Account")
     fun deleteAll()

@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import com.fet.svmp.R
+import com.fet.svmp.SvmpDataBase
+import com.fet.svmp.model.database.entities.AccountInfo
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.iid.InstanceIdResult
@@ -14,13 +16,14 @@ import com.orhanobut.logger.Logger
 class SplashActivity : AppCompatActivity() {
 
     private var mPermissions = arrayOf(android.Manifest.permission.READ_PHONE_STATE, android.Manifest.permission.READ_CONTACTS, android.Manifest.permission.READ_CALENDAR, android.Manifest.permission.WRITE_CALENDAR)
+    var account: List<AccountInfo>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
         val context = this
-
+        account = SvmpDataBase.getInstance(context).AccountInfoDao().getAll()
         val m_permissionCallBackInterface = object : PermissionHelpActivity.PermissionCallBackInterface {
             override fun onGranted(activity: Activity) {
                 FirebaseInstanceId.getInstance().instanceId
@@ -39,7 +42,11 @@ class SplashActivity : AppCompatActivity() {
 
                 Handler().postDelayed(
                         {
-                            LoginActivity.start(context)
+                            if (account?.size == 0) {
+                                LoginActivity.start(context)
+                            } else {
+                                MainActivity.start(context)
+                            }
                             finish()
                         }, 2000)
             }

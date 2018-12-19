@@ -24,7 +24,7 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-        binding.mainViewModel = MainViewModel(this)
+        binding.mainViewModel = MainViewModel(this, application)
 
         setToolBar(this, R.string.title_activity_main)
     }

@@ -19,6 +19,8 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import com.fet.svmp.R
+import com.fet.svmp.SvmpDataBase
+import com.fet.svmp.model.database.entities.AccountInfo
 import kotlinx.android.synthetic.main.activity_login.*
 
 /**
@@ -185,8 +187,7 @@ class LoginActivity : AppCompatActivity() {
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
-    inner class UserLoginTask internal constructor(val context: Context, private val mEmail: String, private val mPassword: String) : AsyncTask<Void, Void, Boolean>()
-    {
+    inner class UserLoginTask internal constructor(val context: Context, private val mEmail: String, private val mPassword: String) : AsyncTask<Void, Void, Boolean>() {
 
         override fun doInBackground(vararg params: Void): Boolean? {
             // TODO: attempt authentication against a network service.
@@ -213,6 +214,7 @@ class LoginActivity : AppCompatActivity() {
             showProgress(false)
 
             if (success!!) {
+                insertAccountToDB(mEmail, mPassword)
                 MainActivity.start(context)
                 finish()
             } else {
@@ -224,6 +226,13 @@ class LoginActivity : AppCompatActivity() {
         override fun onCancelled() {
             mAuthTask = null
             showProgress(false)
+        }
+
+        private fun insertAccountToDB(account: String, password: String) {
+            val info = AccountInfo()
+            info.account = account
+            info.pass = password
+            SvmpDataBase.getInstance(context).AccountInfoDao().insert(info)
         }
     }
 
