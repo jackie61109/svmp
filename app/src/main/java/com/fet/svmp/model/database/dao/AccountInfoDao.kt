@@ -15,13 +15,12 @@ interface AccountInfoDao {
     @Query("SELECT * FROM Account")
     fun getAll(): List<AccountInfo>
 
-
     @Query("SELECT * FROM Account WHERE Account.uid LIKE :uid ")
     fun findById(uid: Int): AccountInfo
 
     @Insert
-    fun insertAll(vararg users: AccountInfo)
+    fun insertAll(users: AccountInfo)
 
-    @Delete
-    fun delete(user: AccountInfo)
+    @Query("DELETE FROM Account")
+    fun deleteAll()
 }

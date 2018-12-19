@@ -1,6 +1,6 @@
 package com.fet.svmp.view
 
-import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -13,7 +13,7 @@ class MainActivity : BaseActivity() {
 
 
     companion object {
-        fun start(activity: Activity) {
+        fun start(activity: Context) {
             val intent = Intent(activity, MainActivity::class.java)
             startActivity(activity, intent, null)
         }

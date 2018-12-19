@@ -15,9 +15,9 @@
     <string name="insufficient_permissions_message">無足夠權限執行friDay錢包，請先至應用程式開啟權限。</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="prompt_email">帳號</string>
+    <string name="prompt_password">密碼</string>
+    <string name="action_sign_in">登入</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
