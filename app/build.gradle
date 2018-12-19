@@ -8,6 +8,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'io.fabric'
 
+apply plugin: 'kotlin-kapt'
+
 repositories {
     maven { url 'https://maven.fabric.io/public' }
     google()
@@ -135,7 +137,7 @@ dependencies {
     //permission
     implementation 'pub.devrel:easypermissions:0.4.0'
     //FireBase
-    implementation 'com.google.firebase:firebase-core:16.0.5'
+    implementation 'com.google.firebase:firebase-core:16.0.6'
     implementation 'com.google.firebase:firebase-messaging:17.3.4'
     ///////// Architecture components /////////
 
@@ -149,7 +151,6 @@ dependencies {
 
     // Room (use 1.1.0-beta2 for latest beta)
     implementation "android.arch.persistence.room:runtime:1.1.1"
-    annotationProcessor "android.arch.persistence.room:compiler:1.1.1"
     kapt "android.arch.persistence.room:compiler:1.1.1"
 
     // Paging
