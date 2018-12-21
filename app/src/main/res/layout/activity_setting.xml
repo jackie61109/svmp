@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+
     <data>
 
         <variable
             name="settingVM"
             type="com.fet.svmp.viewModel.SettingViewModel" />
     </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,11 +19,35 @@
             android:id="@+id/toolbar"
             layout="@layout/toolbar_default" />
 
-        <Button
-            android:layout_width="wrap_content"
+        <com.fet.svmp.widget.CardFormEditRow
+            android:id="@+id/row_version"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/toolbar"
-            android:text="@string/txt_logout"
-            android:onClick="@{() -> settingVM.logout()}"/>
+            android:visibility="visible"
+            app:iconDrawable="@drawable/ic_launcher"
+            app:labelText="@string/txt_version"
+            app:showBottomDivider="true"
+            app:valueText="@{settingVM.getVersionName()}" />
+
+        <com.fet.svmp.widget.CardFormEditRow
+            android:id="@+id/row_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_version"
+            android:visibility="visible"
+            app:iconDrawable="@drawable/ic_launcher"
+            app:labelText="@string/txt_account"
+            app:showBottomDivider="true"
+            app:valueText="@{settingVM.getAccountName()}" />
+
+        <Button
+            android:id="@+id/btn_logout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/row_account"
+            android:layout_centerHorizontal="true"
+            android:onClick="@{() -> settingVM.logout()}"
+            android:text="@string/txt_logout" />
     </RelativeLayout>
 </layout>

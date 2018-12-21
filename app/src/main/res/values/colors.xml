@@ -8,4 +8,8 @@
     <color name="text_white">#ffffff</color>
     <color name="text_black">#464243</color>
     <color name="divider_gray">#CCCCCC</color>
+
+    <drawable name="list_default">#FFFFFF</drawable>
+    <drawable name="list_focused">#d8d8d8</drawable>
+
 </resources>

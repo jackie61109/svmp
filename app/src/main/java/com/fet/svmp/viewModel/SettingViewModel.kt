@@ -3,6 +3,7 @@ package com.fet.svmp.viewModel
 import android.app.Activity
 import android.content.Intent
 import com.fet.svmp.SvmpDataBase
+import com.fet.svmp.customize.Configs
 import com.fet.svmp.view.SplashActivity
 
 /**
@@ -21,5 +22,19 @@ class SettingViewModel(context: Activity) {
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
         activity.startActivity(intent)
         activity.finish()
+    }
+
+    fun getVersionName(): String {
+
+        if (Configs.IS_DEBUG) {
+            return Configs.FLAVOR + "_" + Configs.VERSION_NAME + "_" + Configs.VERSION_TYPE
+        }
+        return Configs.VERSION_NAME
+    }
+
+    fun getAccountName(): String {
+        val accountItem = SvmpDataBase.getInstance(activity).AccountInfoDao().getAll()?.get(0)
+
+        return accountItem?.account ?: ""
     }
 }

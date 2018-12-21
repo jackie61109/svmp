@@ -106,14 +106,12 @@ android {
             manifestPlaceholders = [appName: "SVMP SIT", fabricApiKey: "7e5c897e30de146e81e3ebfbdb03b830c89b5d39"]
 
             dimension "default"
-            buildConfigField "String", "WALLET_ENVIRONMENT", '"SIT"'
         }
 
         prod {
             manifestPlaceholders = [appName: "SVMP Production", fabricApiKey: "7e5c897e30de146e81e3ebfbdb03b830c89b5d39"]
 
             dimension "default"
-            buildConfigField "String", "WALLET_ENVIRONMENT", '"PROD"'
         }
     }
 }

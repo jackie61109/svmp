@@ -7,5 +7,8 @@ import com.fet.svmp.BuildConfig
  */
 object Configs {
 
-    val IS_DEBUG = BuildConfig.IS_DEBUG
+    const val IS_DEBUG = BuildConfig.IS_DEBUG
+    const val VERSION_NAME = BuildConfig.VERSION_NAME
+    const val VERSION_TYPE = BuildConfig.BUILD_TYPE
+    const val FLAVOR = BuildConfig.FLAVOR
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <declare-styleable name="CardFormEditRow">
+        <attr name="iconDrawable"/>
+        <attr name="labelText"/>
+        <attr name="valueText"/>
+        <attr name="showBottomDivider" format="boolean"/>
+    </declare-styleable>
+
+</resources>
