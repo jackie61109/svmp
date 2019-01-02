@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="52dp"
+    android:background="@drawable/list_background_selector"
+    android:paddingLeft="@dimen/default_padding"
+    android:paddingRight="@dimen/default_padding">
+
+    <TextView
+        android:id="@+id/text_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="6dp"
+        android:layout_marginRight="@dimen/little_padding"
+        android:maxLines="1"
+        android:textColor="@color/txt_light_gray4d"
+        android:textSize="13dp" />
+
+    <!--<ImageView-->
+    <!--android:id="@+id/img_failed"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_above="@+id/text_name"-->
+    <!--android:layout_toEndOf="@+id/text_date"-->
+    <!--android:src="@drawable/icon_fail02"-->
+    <!--android:visibility="gone" />-->
+
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_date"
+        android:layout_alignParentLeft="true"
+        android:layout_marginRight="@dimen/little_padding"
+        android:layout_toLeftOf="@+id/text_amount"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/txt_light_gray4d"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/text_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="5dp"
+        android:maxLines="1"
+        android:textColor="@color/txt_light_gray4d"
+        android:textSize="20dp"
+        tools:text="$100" />
+
+
+</RelativeLayout>

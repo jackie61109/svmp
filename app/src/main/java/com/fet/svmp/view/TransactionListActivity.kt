@@ -23,5 +23,6 @@ class TransactionListActivity : BaseActivity() {
         setContentView(R.layout.activity_transaction_list)
 
         setToolBar(this, R.string.title_activity_transaction_list)
+
     }
 }

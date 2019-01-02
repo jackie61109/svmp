@@ -9,6 +9,8 @@
     <color name="text_black">#464243</color>
     <color name="divider_gray">#CCCCCC</color>
 
+    <color name="txt_light_gray4d">#FF4d4d4d</color>
+
     <drawable name="list_default">#FFFFFF</drawable>
     <drawable name="list_focused">#d8d8d8</drawable>
 
