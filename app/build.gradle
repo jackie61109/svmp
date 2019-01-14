@@ -132,8 +132,6 @@ dependencies {
     }
     //Logger third party
     implementation 'com.orhanobut:logger:2.1.1'
-    //permission
-    implementation 'pub.devrel:easypermissions:0.4.0'
     //FireBase
     implementation 'com.google.firebase:firebase-core:16.0.6'
     implementation 'com.google.firebase:firebase-messaging:17.3.4'

@@ -1,9 +1,9 @@
 package com.fet.svmp.view
 
-import android.app.Activity
-import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.Handler
+import android.support.v4.app.ActivityCompat
 import android.support.v7.app.AppCompatActivity
 import com.fet.svmp.R
 import com.fet.svmp.SvmpDataBase
@@ -19,7 +19,6 @@ class SplashActivity : AppCompatActivity() {
     private var mPermissions = arrayOf(android.Manifest.permission.READ_CALENDAR, android.Manifest.permission.WRITE_CALENDAR,
             android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.READ_EXTERNAL_STORAGE)
     var account: List<AccountInfo>? = null
-    var m_permissionCallBackInterface: PermissionHelpActivity.PermissionCallBackInterface? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,49 +26,47 @@ class SplashActivity : AppCompatActivity() {
 
         val context = this
         account = SvmpDataBase.getInstance(context).AccountInfoDao().getAll()
-        m_permissionCallBackInterface = object : PermissionHelpActivity.PermissionCallBackInterface {
-            override fun onGranted(activity: Activity) {
-                getInstance().instanceId
-                        .addOnCompleteListener(OnCompleteListener<InstanceIdResult> { task ->
-                            if (!task.isSuccessful) {
-                                Logger.w("getInstanceId failed", task.exception)
-                                return@OnCompleteListener
-                            }
 
-                            // Get new Instance ID token
-                            val token = task.result?.token
-
-                            // Log and toast
-                            Logger.d("instanceId = $token")
-                        })
-
-                Handler().postDelayed(
-                        {
-                            if (account?.size == 0) {
-                                LoginActivity.start(context)
-                            } else {
-                                MainActivity.start(context)
-                            }
-                            finish()
-                        }, 2000)
-            }
-
-            override fun onDenied(activity: Activity) {
-                activity.finish()
-            }
-        }
-
-        // Request Permissions
-        PermissionHelpActivity.doReqPermissions(this, mPermissions, m_permissionCallBackInterface)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == PermissionHelpActivity.REQUEST_PERMISSIONS_RESULT) {
-            if (resultCode == Activity.RESULT_OK) {
-                m_permissionCallBackInterface?.onGranted(this)
-            } else {
-                m_permissionCallBackInterface?.onDenied(this)
-            }
+    override fun onResume() {
+        super.onResume()
+        if (!isPermissionGranted(mPermissions)) {
+            ActivityCompat.requestPermissions(this, mPermissions, 123)
+        } else {
+            getInstance().instanceId
+                    .addOnCompleteListener(OnCompleteListener<InstanceIdResult> { task ->
+                        if (!task.isSuccessful) {
+                            Logger.w("getInstanceId failed", task.exception)
+                            return@OnCompleteListener
+                        }
+
+                        // Get new Instance ID token
+                        val token = task.result?.token
+
+                        // Log and toast
+                        Logger.d("instanceId = $token")
+                    })
+
+            Handler().postDelayed(
+                    {
+                        if (account?.size == 0) {
+                            LoginActivity.start(this)
+                        } else {
+                            MainActivity.start(this)
+                        }
+                        finish()
+                    }, 2000)
         }
     }
+
+    private fun isPermissionGranted(mPermissions: Array<String>): Boolean {
+        for (permission in mPermissions) {
+            if (ActivityCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_DENIED) {
+                return false
+            }
+        }
+        return true
+    }
+
 }
