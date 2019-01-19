@@ -2,28 +2,17 @@ package com.fet.svmp.view
 
 import android.app.Activity
 import android.content.Intent
+import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.widget.LinearLayout
-import com.android.volley.Request
 import com.fet.svmp.R
-import com.android.volley.toolbox.Volley
-import com.android.volley.Response
-import org.json.JSONArray
-import com.android.volley.toolbox.JsonArrayRequest
 import com.fet.svmp.customize.Configs
-import com.fet.svmp.model.database.entities.OrderListData
+import com.fet.svmp.databinding.ActivityTransactionListBinding
 import com.fet.svmp.model.database.entities.OrderListItem
+import com.fet.svmp.viewModel.TransactionListViewModel
 import com.fet.svmp.widget.OrderListAdapter
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.activity_transaction_list.*
-import java.io.BufferedReader
-import java.io.InputStreamReader
-import java.io.StringReader
 
 
 /**
@@ -31,7 +20,7 @@ import java.io.StringReader
  */
 class TransactionListActivity : BaseActivity() {
 
-    val adapter: OrderListAdapter = OrderListAdapter(this)
+    private val adapter: OrderListAdapter = OrderListAdapter(this)
 
     companion object {
         fun start(activity: Activity) {
@@ -43,12 +32,14 @@ class TransactionListActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.activity_transaction_list)
+        val binding = DataBindingUtil.setContentView<ActivityTransactionListBinding>(this, R.layout.activity_transaction_list)
+        binding.vm = TransactionListViewModel(this, adapter)
 
         setToolBar(this, R.string.title_activity_transaction_list)
 
         transaction_list.layoutManager = LinearLayoutManager(this)
         transaction_list.adapter = adapter
+
         getResponse()
     }
 
@@ -60,7 +51,7 @@ class TransactionListActivity : BaseActivity() {
 //        val raw = resources.openRawResource(resources.getIdentifier("db.json","raw", packageName))
 //        val a = BufferedReader(InputStreamReader(raw,"UTF8"))
 //        val response = a.readLine()
-                    val orderListItem: OrderListItem = Gson().fromJson(Configs.TEST_RESPONSE, OrderListItem::class.java)
+        val orderListItem: OrderListItem = Gson().fromJson(Configs.TEST_RESPONSE, OrderListItem::class.java)
         adapter.resetData(orderListItem.datas)
 //                    for (i in 0 until response.length()) {
 //                        val post = Posts()

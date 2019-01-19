@@ -21,7 +21,7 @@ object Configs {
             "      \"orderDate\": \"2016/04/06\",\n" +
             "      \"orderStatus\": \"F\",\n" +
             "      \"orderInstance\": \"L\",\n" +
-            "      \"orderDesc\": \"測式商品\",\n" +
+            "      \"orderDesc\": \"測式商品1\",\n" +
             "      \"totalAmt\": \"30\"\n" +
             "    },\n" +
             "    {\n" +
@@ -29,7 +29,7 @@ object Configs {
             "      \"orderDate\": \"2016/04/06\",\n" +
             "      \"orderStatus\": \"F\",\n" +
             "      \"orderInstance\": \"L\",\n" +
-            "      \"orderDesc\": \"測式商品\",\n" +
+            "      \"orderDesc\": \"測式商品2\",\n" +
             "      \"totalAmt\": \"30\"\n" +
             "    },\n" +
             "    {\n" +
@@ -37,7 +37,7 @@ object Configs {
             "      \"orderDate\": \"2016/04/06\",\n" +
             "      \"orderStatus\": \"F\",\n" +
             "      \"orderInstance\": \"L\",\n" +
-            "      \"orderDesc\": \"測式商品\",\n" +
+            "      \"orderDesc\": \"測式商品3\",\n" +
             "      \"totalAmt\": \"30\"\n" +
             "    },\n" +
             "    {\n" +
@@ -45,7 +45,7 @@ object Configs {
             "      \"orderDate\": \"2016/04/06\",\n" +
             "      \"orderStatus\": \"F\",\n" +
             "      \"orderInstance\": \"L\",\n" +
-            "      \"orderDesc\": \"測式商品\",\n" +
+            "      \"orderDesc\": \"測式商品4\",\n" +
             "      \"totalAmt\": \"30\"\n" +
             "    },\n" +
             "    {\n" +
@@ -53,7 +53,7 @@ object Configs {
             "      \"orderDate\": \"2016/04/06\",\n" +
             "      \"orderStatus\": \"F\",\n" +
             "      \"orderInstance\": \"L\",\n" +
-            "      \"orderDesc\": \"測式商品\",\n" +
+            "      \"orderDesc\": \"測式商品5\",\n" +
             "      \"totalAmt\": \"30\"\n" +
             "    },\n" +
             "    {\n" +
@@ -61,7 +61,7 @@ object Configs {
             "      \"orderDate\": \"2016/04/06\",\n" +
             "      \"orderStatus\": \"F\",\n" +
             "      \"orderInstance\": \"L\",\n" +
-            "      \"orderDesc\": \"測式商品\",\n" +
+            "      \"orderDesc\": \"測式商品6\",\n" +
             "      \"totalAmt\": \"30\"\n" +
             "    },\n" +
             "    {\n" +
@@ -69,7 +69,7 @@ object Configs {
             "      \"orderDate\": \"2016/04/06\",\n" +
             "      \"orderStatus\": \"F\",\n" +
             "      \"orderInstance\": \"L\",\n" +
-            "      \"orderDesc\": \"測式商品\",\n" +
+            "      \"orderDesc\": \"測式商品7\",\n" +
             "      \"totalAmt\": \"30\"\n" +
             "    },\n" +
             "    {\n" +
@@ -77,7 +77,7 @@ object Configs {
             "      \"orderDate\": \"2016/04/06\",\n" +
             "      \"orderStatus\": \"F\",\n" +
             "      \"orderInstance\": \"L\",\n" +
-            "      \"orderDesc\": \"測式商品\",\n" +
+            "      \"orderDesc\": \"測式商品8\",\n" +
             "      \"totalAmt\": \"30\"\n" +
             "    },\n" +
             "    {\n" +
@@ -85,7 +85,7 @@ object Configs {
             "      \"orderDate\": \"2016/04/06\",\n" +
             "      \"orderStatus\": \"F\",\n" +
             "      \"orderInstance\": \"L\",\n" +
-            "      \"orderDesc\": \"測式商品\",\n" +
+            "      \"orderDesc\": \"測式商品9\",\n" +
             "      \"totalAmt\": \"30\"\n" +
             "    },\n" +
             "    {\n" +
@@ -93,7 +93,7 @@ object Configs {
             "      \"orderDate\": \"2016/04/06\",\n" +
             "      \"orderStatus\": \"F\",\n" +
             "      \"orderInstance\": \"L\",\n" +
-            "      \"orderDesc\": \"測式商品\",\n" +
+            "      \"orderDesc\": \"測式商品10\",\n" +
             "      \"totalAmt\": \"30\"\n" +
             "    }\n" +
             "  ]\n" +
