@@ -6,7 +6,7 @@
 
         <variable
             name="VM"
-            type="com.fet.svmp.viewModel.TransactionListViewModel" />
+            type="com.fet.svmp.viewmodel.TransactionListViewModel" />
     </data>
 
     <RelativeLayout
@@ -33,7 +33,6 @@
             android:layout_centerHorizontal="true"
             android:layout_alignParentBottom="true"
             android:textSize="20sp"
-            android:text="@{VM}"
             tools:text="12321312"/>
 
         <android.support.v7.widget.RecyclerView

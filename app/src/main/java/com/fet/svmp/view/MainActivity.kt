@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.support.v4.content.ContextCompat.startActivity
 import com.fet.svmp.R
 import com.fet.svmp.databinding.ActivityMainBinding
-import com.fet.svmp.viewModel.MainViewModel
+import com.fet.svmp.viewmodel.MainViewModel
 
 class MainActivity : BaseActivity() {
 

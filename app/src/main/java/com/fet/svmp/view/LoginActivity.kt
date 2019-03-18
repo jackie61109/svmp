@@ -21,7 +21,9 @@ import android.widget.TextView
 import com.fet.svmp.R
 import com.fet.svmp.SvmpDataBase
 import com.fet.svmp.model.database.entities.AccountInfo
+import io.reactivex.Completable
 import kotlinx.android.synthetic.main.activity_login.*
+import java.util.*
 
 /**
  * A login screen that offers login via email/password.
@@ -232,6 +234,7 @@ class LoginActivity : AppCompatActivity() {
             val info = AccountInfo()
             info.account = account
             info.pass = password
+            info.time = Date().time
             SvmpDataBase.getInstance(context).AccountInfoDao().insert(info)
         }
     }

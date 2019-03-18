@@ -1,4 +1,4 @@
-package com.fet.svmp.viewModel
+package com.fet.svmp.viewmodel
 
 import android.app.Activity
 import android.content.Intent

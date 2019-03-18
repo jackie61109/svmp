@@ -6,13 +6,17 @@ import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.fet.svmp.R
+import com.fet.svmp.SvmpDataBase
 import com.fet.svmp.customize.Configs
 import com.fet.svmp.databinding.ActivityTransactionListBinding
+import com.fet.svmp.model.database.entities.AccountInfo
 import com.fet.svmp.model.database.entities.OrderListItem
-import com.fet.svmp.viewModel.TransactionListViewModel
+import com.fet.svmp.viewmodel.TransactionListViewModel
 import com.fet.svmp.widget.OrderListAdapter
 import com.google.gson.Gson
+import com.orhanobut.logger.Logger
 import kotlinx.android.synthetic.main.activity_transaction_list.*
+import java.util.*
 
 
 /**
@@ -33,7 +37,7 @@ class TransactionListActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
 
         val binding = DataBindingUtil.setContentView<ActivityTransactionListBinding>(this, R.layout.activity_transaction_list)
-        binding.vm = TransactionListViewModel(this, adapter)
+        binding.vm = TransactionListViewModel(SvmpDataBase.getInstance(this).AccountInfoDao(), this)
 
         setToolBar(this, R.string.title_activity_transaction_list)
 
@@ -41,6 +45,17 @@ class TransactionListActivity : BaseActivity() {
         transaction_list.adapter = adapter
 
         getResponse()
+
+        Timer(true).schedule(object:TimerTask(){
+            override fun run() {
+                val item = AccountInfo()
+                item.uid = 0
+                item.time = Date().time
+                SvmpDataBase.getInstance(applicationContext).AccountInfoDao().insert(item)
+                Logger.d("Time milliseconds = " + item.time)
+            }
+
+        },5000,5000)
     }
 
     private fun getResponse() {

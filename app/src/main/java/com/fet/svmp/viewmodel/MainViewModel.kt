@@ -1,6 +1,5 @@
-package com.fet.svmp.viewModel
+package com.fet.svmp.viewmodel
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel

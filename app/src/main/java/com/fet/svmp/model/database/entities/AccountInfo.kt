@@ -17,8 +17,10 @@ class AccountInfo {
     @ColumnInfo(name = "account_name")
     var account: String? = null
 
-    @NonNull
     @ColumnInfo(name = "account_pass")
     var pass: String? = null
+
+    @ColumnInfo(name = "time")
+    var time: Long? = null
 
 }

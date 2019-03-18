@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.view.Menu
 import com.fet.svmp.R
 import com.fet.svmp.databinding.ActivitySettingBinding
-import com.fet.svmp.viewModel.SettingViewModel
+import com.fet.svmp.viewmodel.SettingViewModel
 
 class SettingActivity : BaseActivity() {
 

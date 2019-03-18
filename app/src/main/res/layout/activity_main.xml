@@ -5,7 +5,7 @@
 
         <variable
             name="mainViewModel"
-            type="com.fet.svmp.viewModel.MainViewModel" />
+            type="com.fet.svmp.viewmodel.MainViewModel" />
     </data>
 
     <RelativeLayout
